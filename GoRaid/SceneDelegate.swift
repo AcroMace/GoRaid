@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+        let contentViewModel = ContentViewModel()
+        contentViewModel.allPokemon = Pokemon.loadPokemon()
+
         let contentView = ContentView()
+            .environmentObject(contentViewModel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -28,9 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-
-        let pokemon: [Pokemon] = Pokemon.loadPokemon()
-        print(pokemon)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
