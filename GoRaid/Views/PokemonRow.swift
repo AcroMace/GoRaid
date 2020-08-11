@@ -12,7 +12,7 @@ struct PokemonRow: View {
     var pokemon: Pokemon
 
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             pokemon.image
                 .padding(.trailing, 8)
 
@@ -26,7 +26,8 @@ struct PokemonRow: View {
 
             Spacer()
         }
-        .padding()
+        .padding(.leading, 16)
+        .padding(.trailing, 16)
     }
 }
 

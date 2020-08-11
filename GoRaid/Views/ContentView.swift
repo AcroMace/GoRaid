@@ -14,6 +14,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             SearchBar(query: $model.query)
+                .padding(.leading, 8)
+                .padding(.trailing, 8)
 
             if model.query != nil && model.query!.count > 0 {
                 PokemonList(pokemons: model.allPokemon.filter({ $0.name.english.lowercased().contains(model.query!.lowercased()) }))

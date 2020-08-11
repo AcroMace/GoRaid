@@ -46,6 +46,8 @@ struct SearchBar: UIViewRepresentable {
     func makeUIView(context: Context) -> UISearchBar {
         let searchBar = UISearchBar()
         searchBar.delegate = context.coordinator
+        searchBar.placeholder = "Search Pokemon name"
+        searchBar.searchBarStyle = .minimal
         return searchBar
     }
 
