@@ -19,6 +19,7 @@ struct PokemonDetail: View {
             pokemon.image
                 .padding(.leading, 16)
                 .padding(.trailing, 16)
+                .padding(.top, 16)
 
             Text(ViewFormatter.formatPokemonTypes(types: pokemon.type))
                 .font(.headline)
