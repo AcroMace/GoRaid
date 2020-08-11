@@ -29,6 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+
+        let pokemon: [Pokemon] = Pokemon.loadPokemon()
+        print(pokemon)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
