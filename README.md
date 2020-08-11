@@ -3,6 +3,7 @@
 A Pokemon Go raid helper, created to help learn SwiftUI.
 
 | Home | Search | Detail |
+| --- | --- | --- |
 | ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/home.png) | ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/search.png) | ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/detail.png) |
 
 ## Features
