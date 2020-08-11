@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Pokemon: Hashable, Codable, Identifiable {
     var id: Int
@@ -66,5 +67,45 @@ struct Pokemon: Hashable, Codable, Identifiable {
         } catch {
             fatalError("Couldn't parse \(filename) as \(Pokemon.self):\n\(error)")
         }
+    }
+}
+
+extension Pokemon {
+    var image: Image {
+        ImageStore.shared.image(id: id)
+    }
+}
+
+final class ImageStore {
+    typealias _ImageDictionary = [Int: CGImage]
+    fileprivate var images: _ImageDictionary = [:]
+
+    fileprivate static var scale = 1
+
+    static var shared = ImageStore()
+
+    func image(id: Int) -> Image {
+        let index = _guaranteeImage(id: id)
+
+        return Image(images.values[index], scale: CGFloat(ImageStore.scale), label: Text(String(id)))
+    }
+
+    static func loadImage(id: Int) -> CGImage {
+        let filename = "sprites/\(String(format: "%03d", id))MS"
+        guard
+            let url = Bundle.main.url(forResource: filename, withExtension: "png"),
+            let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
+            let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
+        else {
+            fatalError("Couldn't load image \(filename).png from main bundle.")
+        }
+        return image
+    }
+
+    fileprivate func _guaranteeImage(id: Int) -> _ImageDictionary.Index {
+        if let index = images.index(forKey: id) { return index }
+
+        images[id] = ImageStore.loadImage(id: id)
+        return images.index(forKey: id)!
     }
 }

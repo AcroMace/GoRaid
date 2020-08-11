@@ -13,11 +13,15 @@ struct PokemonRow: View {
 
     var body: some View {
         HStack {
+            pokemon.image
+                .padding(.trailing, 8)
+
             VStack(alignment: .leading) {
                 Text(pokemon.name.english)
-                    .font(.largeTitle)
+                    .font(.headline)
 
                 Text(pokemon.type.map({ $0.rawValue }).joined(separator: ", "))
+                    .font(.subheadline)
             }
 
             Spacer()

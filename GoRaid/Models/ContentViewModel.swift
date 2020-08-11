@@ -12,5 +12,5 @@ final class ContentViewModel: ObservableObject {
     // The list of all Pokemon
     @Published var allPokemon: [Pokemon] = []
 
-    @Published var query: String? = nil
+    @Published var query: String?
 }
