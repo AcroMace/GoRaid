@@ -13,7 +13,7 @@ struct PokemonRow: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            pokemon.image
+            pokemon.sprite
                 .padding(.trailing, 8)
 
             VStack(alignment: .leading) {
