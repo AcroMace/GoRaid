@@ -90,7 +90,7 @@ final class ImageStore {
     fileprivate var images: _ImageDictionary = [:]
     fileprivate var sprites: _ImageDictionary = [:]
 
-    fileprivate static var imageScale = 2
+    fileprivate static var imageScale = 4
     fileprivate static var spriteScale = 1
 
     static var shared = ImageStore()

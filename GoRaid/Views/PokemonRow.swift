@@ -20,7 +20,7 @@ struct PokemonRow: View {
                 Text(pokemon.name.english)
                     .font(.headline)
 
-                Text(pokemon.type.map({ $0.rawValue }).joined(separator: ", "))
+                Text(ViewFormatter.formatPokemonTypes(types: pokemon.type))
                     .font(.subheadline)
             }
 

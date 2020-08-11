@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct PokemonList: View {
-    var pokemons: [Pokemon]
+    var pokemonsToDisplay: [Pokemon]
+    @Binding var allPokemon: [Pokemon]
 
     var body: some View {
-        List(pokemons) { pokemon in
-            NavigationLink(destination: PokemonDetail(pokemon: pokemon)) {
+        List(pokemonsToDisplay) { pokemon in
+            NavigationLink(destination: PokemonDetail(pokemon: pokemon, allPokemon: self.$allPokemon)) {
                 PokemonRow(pokemon: pokemon)
             }
         }
@@ -35,6 +36,6 @@ struct PokemonList_Previews: PreviewProvider {
                                                     french: "Noadkoko"),
                                 type: [.grass, .psychic])
 
-        return PokemonList(pokemons: [pikachu, exeggutor])
+        return PokemonList(pokemonsToDisplay: [pikachu, exeggutor], allPokemon: .constant([]))
     }
 }

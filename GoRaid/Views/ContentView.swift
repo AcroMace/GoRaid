@@ -19,9 +19,10 @@ struct ContentView: View {
                     .padding(.trailing, 8)
 
                 if model.query != nil && model.query!.count > 0 {
-                    PokemonList(pokemons: model.allPokemon.filter({ $0.name.english.lowercased().contains(model.query!.lowercased()) }))
+                    PokemonList(pokemonsToDisplay: model.allPokemon.filter({ $0.name.english.lowercased().contains(model.query!.lowercased()) }),
+                        allPokemon: $model.allPokemon)
                 } else {
-                    PokemonList(pokemons: model.allPokemon)
+                    PokemonList(pokemonsToDisplay: model.allPokemon, allPokemon: $model.allPokemon)
                 }
             }
             .navigationBarTitle(Text("Go Raid"))
