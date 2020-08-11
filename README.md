@@ -2,6 +2,9 @@
 
 A Pokemon Go raid helper, created to help learn SwiftUI.
 
+| Home | Search | Detail |
+| ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/home.png) | ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/search.png) | ![](https://github.com/AcroMace/GoRaid/raw/master/Screenshots/detail.png) |
+
 ## Features
 
 - You can tap on a pokemon to see what it's super effective and weak against, as well as suggestions of pokemon to use when attacking that particular pokemon
