@@ -10,7 +10,7 @@ import Foundation
 
 struct Pokemon: Hashable, Codable, Identifiable {
     var id: Int
-    var name: String
+    var name: Names
     var type: [PokemonType]
 
     struct Names: Hashable, Codable {
@@ -20,7 +20,9 @@ struct Pokemon: Hashable, Codable, Identifiable {
         var french: String
     }
 
-    enum PokemonType: String, CaseIterable, Codable, Hashable {
+    enum PokemonType: String, CaseIterable, Codable, Hashable, Identifiable {
+        var id: String { UUID().uuidString }
+
         case normal = "Normal"
         case fighting = "Fighting"
         case flying = "Flying"
