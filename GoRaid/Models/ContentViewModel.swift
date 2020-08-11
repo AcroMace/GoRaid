@@ -9,9 +9,6 @@
 import Foundation
 
 final class ContentViewModel: ObservableObject {
-    // Query for filtering by the name of the pokemon
-    @Published var query: String?
-
     // The list of all Pokemon
     @Published var allPokemon: [Pokemon] = []
 }

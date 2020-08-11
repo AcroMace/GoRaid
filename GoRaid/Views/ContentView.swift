@@ -10,9 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: ContentViewModel
+    @State private var query: String?
 
     var body: some View {
-        PokemonList(pokemons: model.allPokemon)
+        VStack {
+            SearchBar(query: $query)
+
+            if query != nil && query!.count > 0 {
+                PokemonList(pokemons: model.allPokemon.filter({ $0.name.english.lowercased().contains(query!.lowercased()) }))
+            } else {
+                PokemonList(pokemons: model.allPokemon)
+            }
+        }
     }
 }
 
